@@ -2,19 +2,20 @@
 <html>
   <head>
     <title>My Extension</title>
-    <style>
-      /* Insert any necessary CSS styles here */
-    </style>
+    <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-    <h1>Welcome to My Extension!</h1>
-    <p>This is a popup window for my Google Chrome extension.</p>
-    <button id="myButton">Click Me!</button>
-    <script>
-      // Insert any necessary JavaScript code here
-      document.getElementById("myButton").addEventListener("click", function() {
-        alert("You clicked the button!");
-      });
-    </script>
+    <div class="header">
+      <h1>My Extension</h1>
+      <button class="settings-button"></button>
+    </div>
+    <button id="additional-button">Click Me!</button>
+    <div class="dropdown">
+      <select>
+        <option value="option1">Option 1</option>
+        <option value="option2">Option 2</option>
+        <option value="option3">Option 3</option>
+      </select>
+    </div>
   </body>
 </html>
