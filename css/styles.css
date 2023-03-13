@@ -1,0 +1,72 @@
+body {
+  font-family: sans-serif;
+  width: 600x;
+  height: 400px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #42815b;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+h1 {
+  margin: 0;
+}
+
+.settings-button {
+  border: none;
+  background-color: #42815b;
+  color: rgb(103, 14, 14);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  cursor: pointer;
+  margin-top: 5px;
+  background-image: url(/images/settings.png);
+  background-size: cover;
+}
+
+.Get-guide-button {
+  background-color: #0051ad;
+}
+.View-all-guides-button {
+  background-color: #0051ad;
+}
+button:hover {
+  background-color: #0051ad;
+}
+
+.leave-request {
+  margin-bottom: 10%;
+  margin-top: 360px;
+  color: #42815b;
+}
+button {
+  margin-top: 20px;
+  padding: 5px 10px;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 200px;
+}
+
+.dropdown {
+  margin-top: 60px;
+  border-top-style: dotted;
+  border-width: 5px;
+  width: 200px;
+}
+
+html {
+  width: 400px;
+}

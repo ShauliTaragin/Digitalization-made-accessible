@@ -1,20 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8" />
     <title>My Extension</title>
-    <style>
-      /* Insert any necessary CS S styles here */
-    </style>
+    <link rel="stylesheet" href="/css/styles.css" />
   </head>
   <body>
-    <h1>Welcome to DMO Extension!</h1>
-    <p>This is a popup window for my Google Chrome extension.</p>
-    <button id="myButton">Click Me!</button>
-    <script>
-      // Insert any necessary JavaScript code here
-      document.getElementById("myButton").addEventListener("click", function() {
-        alert("You clicked the button!");
-      });
-    </script>
+    <div class="header">
+      <h1>DMA</h1>
+      <button class="settings-button"></button>
+    </div>
+
+    <button class="Get-guide-button" id="Get-guide-button">Get guide</button>
+    <div class="dropdown">
+      <select>
+        <option value="option1">Option 1</option>
+        <option value="option2">Option 2</option>
+        <option value="option3">Option 3</option>
+      </select>
+    </div>
+
+    <button class="View-all-guides-button" id="View-all-guides-button">
+      View all guides
+    </button>
+
+    <button class="leave-request" href="contactPage.html">Get help</button>
   </body>
 </html>
