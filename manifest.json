@@ -18,6 +18,6 @@
     {
         "default_popup":"front/popup.html",
         "default_title":"Dma"
-    },
-    "premission":["tabs"]
+    }
+    ,"permissions": [ "tabs" ]
 }
