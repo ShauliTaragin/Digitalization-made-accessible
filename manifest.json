@@ -1,0 +1,23 @@
+{
+    "name": "DMA",
+    "description": "Digitalization made accessible",
+    "version" : "0.1.0",
+    "manifest_version": "3",
+    "content_scripts":
+    [
+        {
+            "matches":["<all_urls>"],
+            "js":["scripts/script.js"]
+        }
+    ],
+    "background":
+    {
+        "service_workers":"scripts/background.js"
+    },
+    "action":
+    {
+        "default_popup":"front/popup.html",
+        "default_title":"Dma"
+    },
+    "premission":["tabs"]
+}
