@@ -8,22 +8,29 @@
   <body>
     <div class="header">
       <h1>DMA</h1>
+      <form action="settingsPage.html">
       <button class="settings-button"></button>
+      </form>
     </div>
 
     <button class="Get-guide-button" id="Get-guide-button">Get guide</button>
-    <div class="dropdown">
-      <select>
-        <option value="option1">Option 1</option>
-        <option value="option2">Option 2</option>
-        <option value="option3">Option 3</option>
-      </select>
-    </div>
+    <select class="dropdown-select">
+      <option value="">Select form</option>
+      <option value="option1">Option 1</option>
+      <option value="option2">Option 2</option>
+      <option value="option3">Option 3</option>
+    </select>
 
     <button class="View-all-guides-button" id="View-all-guides-button">
       View all guides
     </button>
-
-    <button class="leave-request" href="contactPage.html">Get help</button>
+    <form action="contactPage.html">
+      <button
+        class="get-help-button"
+        onclick="window.location.href = 'ontactPage.html';"
+      >
+        Get help
+      </button>
+    </form>
   </body>
 </html>

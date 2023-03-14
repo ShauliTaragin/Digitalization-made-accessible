@@ -3,27 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <title>My Extension</title>
-    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="/css/contcatPageStyles.css" />
   </head>
   <body>
     <div class="header">
-      <h1>My Extension</h1>
-    </div>
-    <form action="" enctype="text/plain" method="post">
-      <table cellspacing="5">
-        <tr>
-          <td><label> Your Name:</label></td>
-          <td><input type="text" name="YourName" value="" /></td>
-        </tr>
-        <tr>
-          <td><label> Your Email:</label></td>
-          <td><input type="email" name="YourEmail" id="" /></td>
-        </tr>
-      </table>
-      <hr />
-      <label>Please write your message below </label><br />
-      <textarea name="YourMessage" id="" cols="30" rows="10"></textarea>
-      <input type="submit" name="" /><br />
-    </form>
+        <h1>Contact Us</h1>
+      </div>
+    <div class="container">
+        <form action="popup.html">
+      
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" name="firstname" placeholder="Your name...">
+      
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" name="lastname" placeholder="Your last name...">
+      
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" placeholder="Your email...">
+      
+          <label for="subject">Subject</label>
+          <textarea id="subject" name="subject" placeholder="Write something..." style="height:200px"></textarea>
+      
+          <button type="submit" class="submit-button" value="Submit" onclick="window.location.href = 'popup.html';">Submit</button> 
+      
+        </form>
+      </div>
   </body>
 </html>
