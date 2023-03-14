@@ -22,7 +22,7 @@
         "default_popup":"front/popup.html",
         "default_title":"Dma"
     },
-    "premission":["tabs"],
+    "permissions":["tabs"],
     "icons":{
         "16": "/images/icon16.png"
     }
