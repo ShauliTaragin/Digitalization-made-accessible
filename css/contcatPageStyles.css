@@ -19,6 +19,14 @@ input[type=text], select, textarea {
     margin-bottom: 16px; /* Bottom margin */
     resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
   }
+  
+  /*aligning the go-back button with the title*/
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   /* Style the submit button with a specific background color etc */
   .submit-button {
     background-color: #04AA6D;
@@ -28,7 +36,21 @@ input[type=text], select, textarea {
     border-radius: 4px;
     cursor: pointer;
   }
-  
+
+  .go-back-button {
+    border: none;
+    background-color: #EDF1FF;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+    margin-left: auto;
+    background-image: url(/images/backbutton.png);
+    background-size: cover;
+  }
+
   /* When moving the mouse over the submit button, add a darker green color */
   input[type=submit]:hover {
     background-color: #45a049;
