@@ -311,25 +311,6 @@ button {
   background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB); */
 }
 
-/* .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-} */
-
-/* .go-back-button {
-  border: none;
-  background-color: #EDF1FF;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  text-align: center;
-  line-height: 30px;
-  cursor: pointer;
-  margin-left: auto;
-  background-image: url(/images/backbutton.png);
-  background-size: cover;
-} */
 
 .container {
   display: flex;
@@ -339,7 +320,7 @@ button {
 
 .Go-to-chosen-option-button {
   align-items: center;
-  background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+  margin-left: 3px;
   border: 0;
   border-radius: 8px;
   box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
@@ -355,20 +336,21 @@ button {
   margin-right: 10px;
   margin-top: 70px;
   max-width: 100%;
-  min-width: 90px;
-  padding: 5px 7px;
+  min-width: 0;
+  padding: 5px;
   text-align: center;
   text-decoration: none;
   touch-action: manipulation;
-  user-select: none;
-  -webkit-user-select: none;
   white-space: nowrap;
-  width: 200px;
+  background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+  width: 40px;
+  height: 60px;
 }
 
 .dropdown-select {
   align-items: center;
   text-align: center;
+  margin-left: 8px;
   margin-top: 70px;
   margin-bottom: 40px;
   bottom: 0;
@@ -394,7 +376,8 @@ button {
   cursor: pointer;
   border-top-style: dotted;
   /* border-width: 5px; */
-  width: 200px; 
+  width: 160px; 
+  height: 60px;
 }
 
 html {
