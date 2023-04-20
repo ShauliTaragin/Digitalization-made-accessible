@@ -1,0 +1,117 @@
+
+  /*aligning the go-back button with the title*/
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+
+  .go-back-button {
+    border: none;
+    background-color: #EDF1FF;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+    margin-left: auto;
+    background-image: url(/images/backbutton.png);
+    background-size: cover;
+  }
+
+  /* When moving the mouse over the submit button, add a darker green color */
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+  
+  /* Add a background color and some padding around the form */
+  /* .container { */
+    /* border-radius: 5px; */
+    /* background-color: #f2f2f2; */
+    /* padding: 20px; */
+  /* } */
+
+
+  /* .dropdown-select option { */
+    /* color: #333; */
+    /* background-color: rgba(166, 16, 204, 0.37); */
+    /* box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+    background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB); */
+  /* } */
+  
+  
+  .container {
+    display: flex;
+    align-items: center; /* Center items vertically */
+  }
+  
+  
+  .Go-to-chosen-option-button {
+    align-items: center;
+    margin-left: 3px;
+    border: 0;
+    border-radius: 8px;
+    box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: flex;
+    font-family: Phantomsans, sans-serif;
+    font-size: 20px;
+    justify-content: space-between;
+    line-height: 1em;
+    margin-bottom: 40px;
+    margin-right: 10px;
+    margin-top: 70px;
+    max-width: 100%;
+    min-width: 0;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+    width: 40px;
+    height: 60px;
+  }
+  
+  .dropdown-select {
+    align-items: center;
+    text-align: center;
+    margin-left: 8px;
+    margin-top: 70px;
+    margin-bottom: 40px;
+    bottom: 0;
+    background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+    border: 0;
+    border-radius: 8px;
+    box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    display: flex;
+    font-family: Phantomsans, sans-serif;
+    font-size: 20px;
+    justify-content: space-between;
+    line-height: 1em;
+    max-width: 100%;
+    min-width: 90px;
+    padding: 5px 7px;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    cursor: pointer;
+    border-top-style: dotted;
+    /* border-width: 5px; */
+    width: 160px; 
+    height: 60px;
+  }
+  
+
+html {
+    width: 400px;
+  }
+  
