@@ -15,3 +15,10 @@ if(last_visit === null || time-last_visit>8){
 localStorage.setItem("last_visit",time)
 last_visit=localStorage.getItem("last_visit")
 console.log(last_visit)
+
+
+
+
+
+
+
