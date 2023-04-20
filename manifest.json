@@ -25,8 +25,9 @@
         }
     ],
     "background": {
-        "service_workers": "scripts/background.js"
+        "service_worker": "scripts/background.js"
     },
+    
     "action": {
         "default_icon": {
             "16": "/images/icon16.png"
@@ -35,6 +36,7 @@
         "default_title": "Dma"
     },
     "permissions": [
+        "activeTab",
         "tabs"
     ],
     "icons": {
