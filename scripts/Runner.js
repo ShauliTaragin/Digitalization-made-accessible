@@ -4,6 +4,9 @@
 //   GREEN: 'green',
 //   BLUE: 'blue'
 // };
+export function foo(){
+    console.log("he");
+}
 
 // function waitForClick(btn) {
 //   console.log(btn);

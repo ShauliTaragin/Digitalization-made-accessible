@@ -78,7 +78,8 @@ update_popup_tab_data()
 
 let btn = document.querySelector(".Go-to-chosen-option-button");
 btn.addEventListener("click", async function () {
-  chrome.runtime.sendMessage({ greeting: "Hello from the popup script!" });
+  const dropdown = document.getElementById("guide-list");
+  chrome.runtime.sendMessage({ greeting: dropdown.value });
 })
 
 

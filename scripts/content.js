@@ -1,5 +1,5 @@
 
-function waitForClick(btn) {
+async function waitForClick(btn) {
   return new Promise((resolve, reject) => {
     btn.addEventListener("click", function() {
       // This code will run when the button is clicked
