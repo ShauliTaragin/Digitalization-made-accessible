@@ -44,12 +44,10 @@ function add_guides_to_drop_down(guides)
         dropdown.appendChild(option)
 
     }
-    console.log(dropdown)
 }
 
 function get_domain_guides(domain_name)
 {
-    console.log(`searching guides for: ${domain_name}`)
 
     for(let i = 0; i < supported_domains.domains.length; ++i)
     {
@@ -69,12 +67,18 @@ async function update_popup_tab_data()
       
 
     const domain_name = await get_current_domain()
-    console.log(`current doamin ${domain_name}`);
     const available_guides = get_domain_guides(domain_name);
-    console.log(`available guides: ${available_guides}`);
 
     add_guides_to_drop_down(available_guides);
 }
 
 
 update_popup_tab_data()
+
+
+let btn = document.querySelector(".Go-to-chosen-option-button");
+btn.addEventListener("click", async function () {
+  chrome.runtime.sendMessage({ greeting: "Hello from the popup script!" });
+})
+
+
