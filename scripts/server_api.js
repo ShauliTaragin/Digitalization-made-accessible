@@ -2,7 +2,7 @@ server_ip = '127.0.0.1'
 
 
 function get_guide(domain_name, guide_name) {
-    const url = `http://c/guide/${domain_name}/${guide_name}`;
+    const url = `http://${server_ip}:5000/guide/${domain_name}/${guide_name}`;
     const http = new XMLHttpRequest();
     
     return new Promise((resolve, reject) => {
