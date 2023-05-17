@@ -98,11 +98,15 @@ function getDomainFromActiveTab() {
   
 
 chrome.runtime.onMessage.addListener(async function(message, sender, sendResponse) {
-  current_tab = await getDomainFromActiveTab();
-  console.log(current_tab.id);
-  console.log(new URL(current_tab.url).hostname);
-  let guide=message.greeting
-
+  let guide=[];
+  if (message.greeting[0]){//case shauli(domain+guide)
+    chrome.tabs.create({ "https://"+message.greeting[1]});
+    sleep(5000);
+    guide=message.greeting[2]
+  }
+  else{
+    guide=message.greeting[1]
+  }
 
   for (let i = 0; i < guide.length; i++) {
     let element = [guide[i].key,guide[i].value,guide[i].number];

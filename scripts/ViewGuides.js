@@ -16,7 +16,30 @@ const supported_domains = {
       }
     ]
   };
-  
+
+  server_ip = '127.0.0.1'
+
+
+  async function get_guide(domain_name, guide_name) {
+      const url = `https://flask-server-deplohy.herokuapp.com/guide/${domain_name}/${guide_name}`;
+      const http = new XMLHttpRequest();
+      
+      return new Promise((resolve, reject) => {
+        http.onreadystatechange = () => {
+          if (http.readyState === XMLHttpRequest.DONE) {
+            if (http.status === 200) {
+              resolve(http.responseText);
+            } else {
+              reject(new Error('Request failed'));
+            }
+          }
+        };
+      
+        http.open('GET', url);
+        http.send();
+      });
+    }
+
   function add_guides_to_drop_down(supported_domains) {
     const dropdown = document.getElementById("guide-list");
   
@@ -33,7 +56,10 @@ const supported_domains = {
   }
   
   add_guides_to_drop_down(supported_domains);
-
+//Sleeping function
+  function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
 
   function getURLFromGuideName(guideName) {
     for (const domain of supported_domains.domains) {
@@ -50,18 +76,22 @@ const supported_domains = {
   button.addEventListener("click", go_to_guide_after_click);
 
   // button.addEventListener("click", async function () {
-  function go_to_guide_after_click(){
+  async function go_to_guide_after_click(){
     console.log("here");
-    
     const dropdown = document.getElementById("guide-list");
-    const a = dropdown.value
+    const domain = "www.maccabi4u.co.il";
+    
+    let guide = await get_guide(domain,dropdown.value)
+
+    guide = JSON.parse(guide)['actions']
+    console.log(guide);
+ 
   //   //get URL from dropdown
   //   const url = getURLFromGuideName(dropdown.value);
-    console.log("a is " + a);
     // Navigate to the URL
-    const url = "https://www.maccabi4u.co.il";
-    chrome.tabs.create({ url });
-    sleep(5000); 
-    chrome.runtime.sendMessage({ greeting: a });
+    
+    // chrome.tabs.create({ url });
+    // sleep(5000); 
+    chrome.runtime.sendMessage({ greeting: [true,domain,guide] });
   // })
 }
