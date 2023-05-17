@@ -85,6 +85,27 @@ supported_domains = {
         http.send();
       });
     }
+
+    function getAllDomains() {
+      const url = 'https://flask-server-deplohy.herokuapp.com/domains';
+      const http = new XMLHttpRequest();
+    
+      return new Promise((resolve, reject) => {
+        http.onreadystatechange = () => {
+          if (http.readyState === XMLHttpRequest.DONE) {
+            if (http.status === 200) {
+              resolve(JSON.parse(http.responseText));
+            } else {
+              reject(new Error('Request failed'));
+            }
+          }
+        };
+    
+        http.open('GET', url);
+        http.send();
+      });
+    }
+    
     
     function post_guide(guide)
     {
