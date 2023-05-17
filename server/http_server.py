@@ -37,5 +37,15 @@ def insert_guide():
     return jsonify({"message": "Guide inserted", "id": str(result.inserted_id)}), 201
 
 
+@app.route('/guides/<domain>', methods=['GET'])
+def get_guides_by_domain(domain):
+    guides = guides_collection.find({"domain": domain}, {"_id": False})
+    guides_list = list(guides)
+    if guides_list:
+        return jsonify(guides_list)
+    else:
+        return jsonify({"message": "No guides found for the specified domain"}), 404
+
+
 if __name__ == '__main__':
     app.run(debug=True)
