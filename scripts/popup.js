@@ -39,6 +39,26 @@ supported_domains = {
         http.send();
       });
     }
+
+    function getGuidesByDomain(domain) {
+      const url = `http://${server_ip}:5000/guides/${domain}`;
+      const http = new XMLHttpRequest();
+    
+      return new Promise((resolve, reject) => {
+        http.onreadystatechange = () => {
+          if (http.readyState === XMLHttpRequest.DONE) {
+            if (http.status === 200) {
+              resolve(http.responseText);
+            } else {
+              reject(new Error('Request failed'));
+            }
+          }
+        };
+    
+        http.open('GET', url);
+        http.send();
+      });
+    }
     
     function post_guide(guide)
     {
@@ -78,20 +98,19 @@ function add_guides_to_drop_down(guides)
 {
     var dropdown = document.getElementById("guide-list")
     
-    for(let i = 0; i <guides.length ; ++i)
+    for(const element of guides)
     {
-        const option = document.createElement("option")
-        option.value = guides[i]
-        option.text = guides[i]
-        
-        dropdown.appendChild(option)
-
+      console.log(element)
+      const option = document.createElement("option")
+      option.value = element.guide_name
+      option.text = element.guide_name
+      
+      dropdown.appendChild(option)
     }
 }
 
 function get_domain_guides(domain_name)
 {
-
     for(let i = 0; i < supported_domains.domains.length; ++i)
     {
         const current_domain = supported_domains.domains[i]
@@ -108,11 +127,10 @@ function get_domain_guides(domain_name)
 async function update_popup_tab_data()
 {
       
-
     const domain_name = await get_current_domain()
-    const available_guides = get_domain_guides(domain_name);
-
-    add_guides_to_drop_down(available_guides);
+    const available_guides = await getGuidesByDomain(domain_name);
+    console.log(available_guides)
+    add_guides_to_drop_down(JSON.parse(available_guides));
 }
 
 
