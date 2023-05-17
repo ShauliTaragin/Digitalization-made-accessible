@@ -6,6 +6,10 @@
     align-items: center;
   }
 
+  html{
+    background-color:  #EDF1FF;
+    width: 400px;
+  }
 
   .go-back-button {
     border: none;
@@ -43,14 +47,14 @@
   
   
   .container {
-    display: flex;
+    display: inline-flex;
     align-items: center; /* Center items vertically */
+    margin-left: 25%;
   }
   
   
   .Go-to-chosen-option-button {
     align-items: center;
-    margin-left: 3px;
     border: 0;
     border-radius: 8px;
     box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
@@ -63,7 +67,6 @@
     justify-content: space-between;
     line-height: 1em;
     margin-bottom: 40px;
-    margin-right: 10px;
     margin-top: 70px;
     max-width: 100%;
     min-width: 0;
@@ -80,7 +83,6 @@
   .dropdown-select {
     align-items: center;
     text-align: center;
-    margin-left: 8px;
     margin-top: 70px;
     margin-bottom: 40px;
     bottom: 0;
@@ -109,9 +111,5 @@
     width: 160px; 
     height: 60px;
   }
-  
 
-html {
-    width: 400px;
-  }
   
