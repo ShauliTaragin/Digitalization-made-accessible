@@ -75,23 +75,16 @@ const supported_domains = {
   // Add a click event listener to the button
   button.addEventListener("click", go_to_guide_after_click);
 
-  // button.addEventListener("click", async function () {
   async function go_to_guide_after_click(){
     console.log("here");
     const dropdown = document.getElementById("guide-list");
-    const domain = "www.maccabi4u.co.il";
-    
+    let domain = "www.maccabi4u.co.il";
     let guide = await get_guide(domain,dropdown.value)
-
+    domain = "https://".concat("", domain);
     guide = JSON.parse(guide)['actions']
-    console.log(guide);
- 
-  //   //get URL from dropdown
-  //   const url = getURLFromGuideName(dropdown.value);
-    // Navigate to the URL
-    
-    // chrome.tabs.create({ url });
-    // sleep(5000); 
-    chrome.runtime.sendMessage({ greeting: [true,domain,guide] });
-  // })
+
+    const url = domain
+
+    chrome.runtime.sendMessage({ greeting: [true,guide] });
+    chrome.tabs.create({ url });
 }

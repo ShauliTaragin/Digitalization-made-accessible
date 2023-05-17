@@ -18,9 +18,6 @@ supported_domains = {
     ]
   }
 
-  server_ip = '127.0.0.1'
-
-
   async function get_guide(domain_name, guide_name) {
       const url = `https://flask-server-deplohy.herokuapp.com/guide/${domain_name}/${guide_name}`;
       const http = new XMLHttpRequest();
