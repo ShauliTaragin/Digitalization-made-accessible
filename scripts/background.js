@@ -1,53 +1,5 @@
 
-// server api functions
-server_ip = '127.0.0.1'
-
-
-function get_guide(domain_name, guide_name) {
-    const url = `http://${server_ip}:5000/guide/${domain_name}/${guide_name}`;
-    const http = new XMLHttpRequest();
-    
-    return new Promise((resolve, reject) => {
-      http.onreadystatechange = () => {
-        if (http.readyState === XMLHttpRequest.DONE) {
-          if (http.status === 200) {
-            resolve(http.responseText);
-          } else {
-            reject(new Error('Request failed'));
-          }
-        }
-      };
-    
-      http.open('GET', url);
-      http.send();
-    });
-  }
-  
-  function post_guide(guide)
-  {
-
-    let xhr = new XMLHttpRequest();
-    xhr.open("POST", `http://${server_ip}:5000/guide`);
-    xhr.setRequestHeader("Accept", "application/json");
-    xhr.setRequestHeader("Content-Type", "application/json");
-    
-    xhr.onreadystatechange = function () {
-      if (xhr.readyState === 4) {
-        console.log(xhr.status);
-        console.log(xhr.responseText);
-      }};
-    
-
-
-    xhr.send(guide);
-  }
-  /////////////////////////////////////////////////////////////////////////////////
 let current_tab;
-
-// chrome.tabs.onActivated.addListener(function(activeInfo) {
-//     // This function will be called when a tab is activated
-//     current_tab=activeInfo;
-//   });
   
 
   
@@ -98,8 +50,20 @@ function getDomainFromActiveTab() {
   
 
 chrome.runtime.onMessage.addListener(async function(message, sender, sendResponse) {
-  let guide=message.greeting
 
+  let guide=[];
+  if (message.greeting[0]){
+    console.log("start")
+    await sleep(5000);
+    console.log("done")
+
+    guide=message.greeting[1]
+  }
+  else{
+    guide=message.greeting[1]
+  }
+
+  current_tab = await getDomainFromActiveTab();
 
   for (let i = 0; i < guide.length; i++) {
     let element = [guide[i].key,guide[i].value,guide[i].number];

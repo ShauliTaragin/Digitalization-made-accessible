@@ -1,28 +1,3 @@
-// server api functions
-server_ip = '127.0.0.1'
-
-
-async function get_guide(domain_name, guide_name) {
-    const url = `http://${server_ip}:5000/guide/${domain_name}/${guide_name}`;
-    const http = new XMLHttpRequest();
-    
-    return new Promise((resolve, reject) => {
-      http.onreadystatechange = () => {
-        if (http.readyState === XMLHttpRequest.DONE) {
-          if (http.status === 200) {
-            resolve(http.responseText);
-          } else {
-            reject(new Error('Request failed'));
-          }
-        }
-      };
-    
-      http.open('GET', url);
-      http.send();
-    });
-  }
-  //////////////////////////////////////////////////////
-
 
 supported_domains = {
     "domains": [
@@ -43,10 +18,7 @@ supported_domains = {
     ]
   }
 
-  server_ip = '127.0.0.1'
-
-
-  function get_guide(domain_name, guide_name) {
+  async function get_guide(domain_name, guide_name) {
       const url = `https://flask-server-deplohy.herokuapp.com/guide/${domain_name}/${guide_name}`;
       const http = new XMLHttpRequest();
       
@@ -192,7 +164,7 @@ btn.addEventListener("click", async function () {
   console.log(guide)
   guide = JSON.parse(guide)['actions']
   console.log(guide)
-  chrome.runtime.sendMessage({ greeting: guide });
+  chrome.runtime.sendMessage({ greeting: [false,guide] });
 })
 
 
