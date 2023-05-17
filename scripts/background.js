@@ -102,7 +102,11 @@ chrome.runtime.onMessage.addListener(async function(message, sender, sendRespons
     console.log(current_tab.id);
     console.log(new URL(current_tab.url).hostname);
     // let guide = get_guide(new URL(current_tab.url).hostname,message)    
-  const guide = [["blue-item-link","זימון תור חדש",1],["submit details","המשך",1]];
+  // const guide = [["blue-item-link","זימון תור חדש",1],["submit details","המשך",1]];
+    const guide = [["login","שירות אישי",1],["btn-sms-login btn btn-primary ladda-button","כניסה",1],
+    ["singleNav ng-binding","גבייה",1],["ng-binding ng-scope","תשלום דמי ביטוח לאומי וביטוח בריאות",1]];
+    // ["navbar-toggle","תפריט ראשי",1]
+
   for (let i = 0; i < guide.length; i++) {
     let element = guide[i];
     let a = await sendMessage(element);

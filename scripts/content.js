@@ -34,14 +34,20 @@ chrome.runtime.onMessage.addListener(
   async function highlight_element(element_class, element_name, operation) {
 
     return new Promise((resolve) => {
-  
+      console.log(element_name);
+
       const elements=document.getElementsByClassName(element_class);
+            // console.log(elements);
       let element;
     // loop through the elements and highlight or perform the specified operation on them
     for (let i = 0; i < elements.length; i++) {
       element = elements[i];
-  
-      if(element.textContent == element_name){
+      console.log(element);
+      console.log(element.textContent);
+      console.log(element.textContent.trim() === element_name);
+
+
+      if(element.textContent.trim() === element_name){
         element.style.backgroundColor = "yellow";
         // switch (operation) {
         //   case Operation.highlight:
