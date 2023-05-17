@@ -98,17 +98,14 @@ function getDomainFromActiveTab() {
   
 
 chrome.runtime.onMessage.addListener(async function(message, sender, sendResponse) {
-    current_tab = await getDomainFromActiveTab();
-    console.log(current_tab.id);
-    console.log(new URL(current_tab.url).hostname);
-    // let guide = get_guide(new URL(current_tab.url).hostname,message)    
-  // const guide = [["blue-item-link","זימון תור חדש",1],["submit details","המשך",1]];
-    const guide = [["login","שירות אישי",1],["btn-sms-login btn btn-primary ladda-button","כניסה",1],
-    ["singleNav ng-binding","גבייה",1],["ng-binding ng-scope","תשלום דמי ביטוח לאומי וביטוח בריאות",1]];
-    // ["navbar-toggle","תפריט ראשי",1]
+  current_tab = await getDomainFromActiveTab();
+  console.log(current_tab.id);
+  console.log(new URL(current_tab.url).hostname);
+  let guide=message.greeting
+
 
   for (let i = 0; i < guide.length; i++) {
-    let element = guide[i];
+    let element = [guide[i].key,guide[i].value,guide[i].number];
     let a = await sendMessage(element);
     await waitForResponse();
     await sleep(5000);

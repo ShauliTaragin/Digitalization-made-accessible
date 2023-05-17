@@ -1,3 +1,29 @@
+// server api functions
+server_ip = '127.0.0.1'
+
+
+async function get_guide(domain_name, guide_name) {
+    const url = `http://${server_ip}:5000/guide/${domain_name}/${guide_name}`;
+    const http = new XMLHttpRequest();
+    
+    return new Promise((resolve, reject) => {
+      http.onreadystatechange = () => {
+        if (http.readyState === XMLHttpRequest.DONE) {
+          if (http.status === 200) {
+            resolve(http.responseText);
+          } else {
+            reject(new Error('Request failed'));
+          }
+        }
+      };
+    
+      http.open('GET', url);
+      http.send();
+    });
+  }
+  //////////////////////////////////////////////////////
+
+
 supported_domains = {
     "domains": [
       {
@@ -140,7 +166,12 @@ update_popup_tab_data()
 let btn = document.querySelector(".Go-to-chosen-option-button");
 btn.addEventListener("click", async function () {
   const dropdown = document.getElementById("guide-list");
-  chrome.runtime.sendMessage({ greeting: dropdown.value });
+  let domain = await get_current_domain();
+  let guide = await get_guide(domain,dropdown.value)
+  console.log(guide)
+  guide = JSON.parse(guide)['actions']
+  console.log(guide)
+  chrome.runtime.sendMessage({ greeting: guide });
 })
 
 
