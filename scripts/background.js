@@ -98,9 +98,6 @@ function getDomainFromActiveTab() {
   
 
 chrome.runtime.onMessage.addListener(async function(message, sender, sendResponse) {
-  current_tab = await getDomainFromActiveTab();
-  console.log(current_tab.id);
-  console.log(new URL(current_tab.url).hostname);
   let guide=message.greeting
 
 
