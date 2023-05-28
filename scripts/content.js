@@ -51,7 +51,7 @@ chrome.runtime.onMessage.addListener(
       if(element.textContent.trim() === element_name){
         element.style.backgroundColor = "yellow";
         element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        element.
+        // element.
         // const targetElement = document.getElementById('footerCollapse-collapse1');
 
 // Scroll the page to the target element

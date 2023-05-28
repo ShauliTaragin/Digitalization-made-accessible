@@ -119,7 +119,6 @@ function add_guides_to_drop_down(guides)
     
     for(const element of guides)
     {
-      console.log(element)
       const option = document.createElement("option")
       option.value = element.guide_name
       option.text = element.guide_name
@@ -148,7 +147,6 @@ async function update_popup_tab_data()
       
     const domain_name = await get_current_domain()
     const available_guides = await getGuidesByDomain(domain_name);
-    console.log(available_guides)
     add_guides_to_drop_down(JSON.parse(available_guides));
 }
 
@@ -161,9 +159,7 @@ btn.addEventListener("click", async function () {
   const dropdown = document.getElementById("guide-list");
   let domain = await get_current_domain();
   let guide = await get_guide(domain,dropdown.value)
-  console.log(guide)
   guide = JSON.parse(guide)['actions']
-  console.log(guide)
   chrome.runtime.sendMessage({ greeting: [false,guide] });
 })
 

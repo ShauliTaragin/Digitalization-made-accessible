@@ -53,9 +53,7 @@ chrome.runtime.onMessage.addListener(async function(message, sender, sendRespons
 
   let guide=[];
   if (message.greeting[0]){
-    console.log("start")
     await sleep(5000);
-    console.log("done")
 
     guide=message.greeting[1]
   }
