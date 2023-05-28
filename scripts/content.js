@@ -8,56 +8,51 @@ async function waitForClick(btn) {
   });
 }
 
-async function sendMessage(message) {
-  return new Promise((resolve, reject) => {
-    chrome.tabs.query({ active: true, currentWindow: true }, async function (tabs) {
-      await chrome.tabs.sendMessage(tabs[0].id, { greeting: message }, async function (response) {
-        if (response) {
-          resolve(response);
-        } else {
-          reject(chrome.runtime.lastError);
+
+  async function get_element(class_name, content)
+  {
+    return new Promise((resolve, reject) =>
+    {
+
+      const class_members = document.getElementsByClassName(class_name);
+
+      for (var i = 0; i < class_members.length; i++) 
+      {
+        var element = class_members[i];
+        if(element.textContent.trim() === content)
+        {
+          resolve(element)
         }
-      });
-    });
-  });
-}
-
-chrome.runtime.onMessage.addListener(
-  async function(request, sender, sendResponse) {
-    const element =request.greeting;
-    sendResponse({farewell: "hey"})
-    let btn = await highlight_element(element[0],element[1],element[2]);
-    await waitForClick(btn);
-    btn.style.backgroundColor = "";
-    chrome.runtime.sendMessage({ greeting: "Hello from the content script!" });
-  });
-
-  async function highlight_element(element_class, element_name, operation) {
-
-    return new Promise((resolve) => {
-      console.log(element_name);
-
-      const elements=document.getElementsByClassName(element_class);
-            // console.log(elements);
-      let element;
-    // loop through the elements and highlight or perform the specified operation on them
-    for (let i = 0; i < elements.length; i++) {
-      element = elements[i];
-      console.log(element);
-      console.log(element.textContent);
-      console.log(element.textContent.trim() === element_name);
-
-
-      if(element.textContent.trim() === element_name){
-        element.style.backgroundColor = "yellow";
-        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        element.style.animation = 'pulse 2s infinite';
-        
-        break;
-      }  
-    }
-    resolve(element);
-    });
-    
-    
+      }
+      reject('element not found in class members')
+    })
   }
+
+  function color_element(element)
+  {
+    element.style.backgroundColor = "yellow";
+    element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  async function execute_step(guide_step)
+  {
+    console.log(guide_step)
+    let element = await get_element(guide_step['key'], guide_step['value'])
+    console.log(element)
+    color_element(element)
+  }
+  async function wait_for_guide()
+  {
+    chrome.storage.local.get(['active_guide'], (result) =>
+    { 
+      const steps = result['active_guide']
+      if(result != undefined)
+      {
+        execute_step(steps[0])  
+      }
+
+    }
+
+  )}
+  
+  setInterval(wait_for_guide, 1000);
