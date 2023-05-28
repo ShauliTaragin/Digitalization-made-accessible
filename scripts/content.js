@@ -51,22 +51,7 @@ chrome.runtime.onMessage.addListener(
       if(element.textContent.trim() === element_name){
         element.style.backgroundColor = "yellow";
         element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        // element.
-        // const targetElement = document.getElementById('footerCollapse-collapse1');
-
-// Scroll the page to the target element
-        // element.scrollIntoView();
-        // switch (operation) {
-        //   case Operation.highlight:
-        //     console.log(element);
-        //     element.style.backgroundColor = "yellow";
-        //     break;
-        //   default:
-        //     console.log('the operation does not exist');
-        //     console.log(element);
-        //     element.style.backgroundColor = "yellow";
-        //     break;
-        // }
+        element.style.animation = 'pulse 2s infinite';
         
         break;
       }  
