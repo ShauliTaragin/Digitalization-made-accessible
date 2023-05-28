@@ -1,24 +1,9 @@
+// server api functions
 
-supported_domains = {
-    "domains": [
-      {
-        "name": "www.btl.gov.il",
-        "guides": [
-          "טופס 3010",
-          "קצבת נכות"
-        ]
-      },
-      {
-        "name": "www.maccabi4u.co.il",
-        "guides": [
-          "קביעת תור לרופא",
-          "הזמנת רופא לבית"
-        ]
-      }
-    ]
-  }
+  const server_ip = '127.0.0.1'
 
-  async function get_guide(domain_name, guide_name) {
+
+  function get_guide(domain_name, guide_name) {
       const url = `https://flask-server-deplohy.herokuapp.com/guide/${domain_name}/${guide_name}`;
       const http = new XMLHttpRequest();
       

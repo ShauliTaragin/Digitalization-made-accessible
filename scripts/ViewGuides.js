@@ -1,3 +1,4 @@
+import { getAllDomains } from "./popup.js";
 const supported_domains = {
     "domains": [
       {
@@ -16,35 +17,27 @@ const supported_domains = {
       }
     ]
   };
+  add_domains_to_drop_down(await getAllDomains());
 
-  server_ip = '127.0.0.1'
-
-
-  async function get_guide(domain_name, guide_name) {
-      const url = `https://flask-server-deplohy.herokuapp.com/guide/${domain_name}/${guide_name}`;
-      const http = new XMLHttpRequest();
+  function add_domains_to_drop_down(domains)
+{
+    var dropdown = document.getElementById("domain-list")
+    
+    for(const element of domains)
+    {
+      const option = document.createElement("option")
+      option.value = element
+      option.text = element
       
-      return new Promise((resolve, reject) => {
-        http.onreadystatechange = () => {
-          if (http.readyState === XMLHttpRequest.DONE) {
-            if (http.status === 200) {
-              resolve(http.responseText);
-            } else {
-              reject(new Error('Request failed'));
-            }
-          }
-        };
-      
-        http.open('GET', url);
-        http.send();
-      });
+      dropdown.appendChild(option)
     }
-
+}
   function add_guides_to_drop_down(supported_domains) {
-    const dropdown = document.getElementById("guide-list");
+    console.log(supported_domains);
+    const dropdown = document.getElementById("domain-list");
   
     // Loop through each domain
-    for (const domain of supported_domains.domains) {
+    for (const domain of supported_domains) {
       // Loop through the guides for this domain and add them as options to the dropdown
       for (const guide of domain.guides) {
         const option = document.createElement("option");
@@ -55,11 +48,7 @@ const supported_domains = {
     }
   }
   
-  add_guides_to_drop_down(supported_domains);
-//Sleeping function
-  function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-  }
+  // add_guides_to_drop_down(supported_domains);
 
   function getURLFromGuideName(guideName) {
     for (const domain of supported_domains.domains) {

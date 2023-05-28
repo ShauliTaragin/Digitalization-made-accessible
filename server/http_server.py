@@ -36,7 +36,6 @@ def insert_guide():
     result = guides_collection.insert_one(guide)
     return jsonify({"message": "Guide inserted", "id": str(result.inserted_id)}), 201
 
-
 @app.route('/guides/<domain>', methods=['GET'])
 def get_guides_by_domain(domain):
     guides = guides_collection.find({"domain": domain}, {"_id": False})
