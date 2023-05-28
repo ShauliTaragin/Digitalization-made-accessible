@@ -37,7 +37,8 @@
     },
     "permissions": [
         "activeTab",
-        "tabs"
+        "tabs",
+        "storage"
     ],
     "icons": {
         "16": "/images/icon16.png"
