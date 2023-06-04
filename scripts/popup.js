@@ -151,6 +151,22 @@ async function update_popup_tab_data()
 }
 
 
+function start_guide(guide)
+{
+  chrome.storage.local.get(['active_guide'], function(result) {
+    if (result.key === undefined) {
+      // Key doesn't exist, set a default value or take appropriate action
+      var defaultValue = 'default value';
+      chrome.storage.local.set({ 'active_guide': guide }, function() {
+        // Default value is set
+      });
+    } else 
+    {
+      console.log('there is guide running already')
+    }
+  });
+}
+
 update_popup_tab_data()
 
 
@@ -160,7 +176,9 @@ btn.addEventListener("click", async function () {
   let domain = await get_current_domain();
   let guide = await get_guide(domain,dropdown.value)
   guide = JSON.parse(guide)['actions']
-  chrome.runtime.sendMessage({ greeting: [false,guide] });
+
+  start_guide(guide)
+  // chrome.runtime.sendMessage({ greeting: [false,guide] });
 })
 
 
