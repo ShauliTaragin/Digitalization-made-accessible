@@ -31,7 +31,8 @@
         http.onreadystatechange = () => {
           if (http.readyState === XMLHttpRequest.DONE) {
             if (http.status === 200) {
-              resolve(http.responseText);
+              const response = JSON.parse(http.responseText);
+              resolve(response);
             } else {
               reject(new Error('Request failed'));
             }
@@ -51,7 +52,8 @@
         http.onreadystatechange = () => {
           if (http.readyState === XMLHttpRequest.DONE) {
             if (http.status === 200) {
-              resolve(JSON.parse(http.responseText));
+              const response = JSON.parse(http.responseText);
+              resolve(response);
             } else {
               reject(new Error('Request failed'));
             }
@@ -164,3 +166,5 @@ notification.addEventListener("click", async function () {
 })
 
 
+
+export  {getAllDomains, getGuidesByDomain, get_guide} ;
