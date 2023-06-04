@@ -1,6 +1,6 @@
-
 let current_tab;
-  
+chrome.storage.local.set({ 'notification': false}, function() {});
+
 
   
 async function sendMessage(message) {

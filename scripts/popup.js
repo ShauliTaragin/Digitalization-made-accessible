@@ -150,23 +150,6 @@ async function update_popup_tab_data()
     add_guides_to_drop_down(JSON.parse(available_guides));
 }
 
-
-function start_guide(guide)
-{
-  chrome.storage.local.get(['active_guide'], function(result) {
-    if (result.key === undefined) {
-      // Key doesn't exist, set a default value or take appropriate action
-      var defaultValue = 'default value';
-      chrome.storage.local.set({ 'active_guide': guide }, function() {
-        // Default value is set
-      });
-    } else 
-    {
-      console.log('there is guide running already')
-    }
-  });
-}
-
 update_popup_tab_data()
 
 
@@ -182,7 +165,17 @@ btn.addEventListener("click", async function () {
     obj.found = false;
   });
   console.log(guide)
-  start_guide(guide)
+  chrome.storage.local.set({ 'active_guide': guide }, function() {});
+})
+
+let notification = document.querySelector(".Get-guide-button");
+notification.addEventListener("click", async function () {
+  chrome.storage.local.get(['notification'], (result) =>
+  { 
+    const notification = result['notification']
+    chrome.storage.local.set({ 'notification': !notification }, function() {});
+  }
+  )
 })
 
 

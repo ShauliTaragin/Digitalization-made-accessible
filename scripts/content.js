@@ -64,6 +64,7 @@ async function waitForClick(btn, guide) {
 
     }
 
-  )}
+  )
+}
   
   setInterval(wait_for_guide, 1000);
