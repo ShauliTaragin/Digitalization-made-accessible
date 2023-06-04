@@ -2,7 +2,6 @@
 async function waitForClick(element, guide) {
   return new Promise((resolve, reject) => {
     element.addEventListener("click", function() {
-    btn.removeEventListener('click', function() {})
       guide.shift()
       console.log(guide)
       chrome.storage.local.set({ 'active_guide': guide }, function() {});
