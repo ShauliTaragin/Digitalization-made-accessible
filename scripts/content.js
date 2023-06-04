@@ -1,8 +1,11 @@
 
-async function waitForClick(btn) {
+async function waitForClick(btn, guide) {
   return new Promise((resolve, reject) => {
     btn.addEventListener("click", function() {
-      // This code will run when the button is clicked
+      //btn.removeEventListener('click', function() {})
+      guide.shift()
+      console.log(guide)
+      chrome.storage.local.set({ 'active_guide': guide }, function() {});
       resolve();
     });
   });
@@ -34,21 +37,24 @@ async function waitForClick(btn) {
     element.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 
-  async function execute_step(guide_step)
+  async function execute_step(guide_step,guide)
   {
     console.log(guide_step)
     let element = await get_element(guide_step['key'], guide_step['value'])
     console.log(element)
     color_element(element)
+    await waitForClick(element,guide)
+    
   }
   async function wait_for_guide()
   {
     chrome.storage.local.get(['active_guide'], (result) =>
     { 
       const steps = result['active_guide']
+      console.log(steps)
       if(result != undefined)
       {
-        execute_step(steps[0])  
+        execute_step(steps[0], steps)  
       }
 
     }
