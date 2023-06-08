@@ -1,5 +1,4 @@
-
-  /*aligning the go-back button with the title*/
+/aligning the go-back button with the title/
   .header {
     display: flex;
     justify-content: space-between;
@@ -47,9 +46,19 @@
   
   
   .container {
+    margin-left: 25%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content:space-between ;
+    align-items: center;
+    gap: 20px;
+  }
+  .first-container {
     display: inline-flex;
     align-items: center; /* Center items vertically */
     margin-left: 25%;
+    width: 125;
   }
   
   
@@ -66,9 +75,6 @@
     font-size: 20px;
     justify-content: space-between;
     line-height: 1em;
-    margin-bottom: 40%;
-    margin-top: 70px;
-    max-width: 100%;
     min-width: 0;
     padding: 5px;
     text-align: center;
@@ -76,15 +82,11 @@
     touch-action: manipulation;
     white-space: nowrap;
     background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
-    width: 40px;
-    height: 60px;
   }
   
   .dropdown-select {
     align-items: center;
     text-align: center;
-    margin-top: 70px;
-    margin-bottom: 40%;
     bottom: 0;
     background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
     border: 0;
@@ -108,8 +110,6 @@
     cursor: pointer;
     border-top-style: dotted;
     /* border-width: 5px; */
-    width: 160px; 
-    height: 60px;
   }
 
   .dropdown-select option{

@@ -179,3 +179,4 @@ notification.addEventListener("click", async function () {
 })
 
 
+// export  {getAllDomains, getGuidesByDomain, get_guide} ;
