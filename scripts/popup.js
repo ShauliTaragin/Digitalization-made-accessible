@@ -159,12 +159,10 @@ btn.addEventListener("click", async function () {
   let domain = await get_current_domain();
   let guide = await get_guide(domain,dropdown.value)
   guide = JSON.parse(guide)['actions']
-  console.log(guide)
 
   guide.forEach(obj => {
     obj.found = false;
   });
-  console.log(guide)
   chrome.storage.local.set({ 'active_guide': guide }, function() {});
 })
 

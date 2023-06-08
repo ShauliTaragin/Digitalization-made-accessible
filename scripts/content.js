@@ -3,7 +3,6 @@ async function waitForClick(element, guide) {
   return new Promise((resolve, reject) => {
     element.addEventListener("click", function() {
       guide.shift()
-      console.log(guide)
       chrome.storage.local.set({ 'active_guide': guide }, function() {});
       remove_pulse(element)
       resolve();
@@ -47,10 +46,8 @@ async function waitForClick(element, guide) {
 
   async function execute_step(guide_step,guide)
   {
-    console.log(guide_step)
     let element = await get_element(guide_step['key'], guide_step['value'])
     step_found(guide)
-    console.log(element)
     add_pulse(element)
     element.scrollIntoView({ behavior: 'smooth', block: 'center' });
     await waitForClick(element,guide)
@@ -63,7 +60,6 @@ async function waitForClick(element, guide) {
       const steps = result['active_guide']
       if(steps.length>0 && !steps[0].found)
       {
-        console.log(steps)
         execute_step(steps[0], steps)  
       }
 

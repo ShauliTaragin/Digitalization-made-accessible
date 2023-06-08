@@ -7,7 +7,8 @@ async function get_guide(domain_name, guide_name) {
     http.onreadystatechange = () => {
       if (http.readyState === XMLHttpRequest.DONE) {
         if (http.status === 200) {
-          resolve(http.responseText);
+          const response = JSON.parse(http.responseText);
+          resolve(response);
         } else {
           reject(new Error('Request failed'));
         }
@@ -27,7 +28,8 @@ function getGuidesByDomain(domain) {
     http.onreadystatechange = () => {
       if (http.readyState === XMLHttpRequest.DONE) {
         if (http.status === 200) {
-          resolve(http.responseText);
+          const response = JSON.parse(http.responseText);
+          resolve(response);
         } else {
           reject(new Error('Request failed'));
         }
@@ -47,7 +49,8 @@ function getAllDomains() {
     http.onreadystatechange = () => {
       if (http.readyState === XMLHttpRequest.DONE) {
         if (http.status === 200) {
-          resolve(JSON.parse(http.responseText));
+          const response = JSON.parse(http.responseText);
+          resolve(response);
         } else {
           reject(new Error('Request failed'));
         }
@@ -96,13 +99,15 @@ button.addEventListener("click", async () => {
   const guidesDropdownValue = guidesDropdown.value;
 
   if (domainDropdownValue != "" && guidesDropdownValue != "") {
-    console.log(domainDropdownValue+ " "  +guidesDropdownValue );
     let guide = await get_guide(domainDropdownValue, guidesDropdownValue)
-    console.log(guide);
     const url = "https://".concat("", domainDropdownValue);
-    guide = JSON.parse(guide)['actions']
+    guide = guide['actions']
 
-    chrome.runtime.sendMessage({ greeting: [true,guide] });
+    guide.forEach(obj => {
+      obj.found = false;
+    });
+    chrome.storage.local.set({ 'active_guide': guide }, function() {});
+
     chrome.tabs.create({ url });
   } else {
     alert("Please select a website and a guide");

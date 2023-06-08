@@ -29,7 +29,6 @@ async function main (){
     chrome.storage.local.get(['notification'], (result) =>
     { 
         const notification = result['notification']
-        console.log(notification)
         if((last_visit === null || time-last_visit>8) && notification){
             if(domains.includes(domain)){
                 alert("שלום, ישנם מדריכים קיימים לאתר זה בתוסף")
