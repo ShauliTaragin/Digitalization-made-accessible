@@ -15,7 +15,8 @@
     </form>
   </div>
   <div class="container">
-    <form action="popup.html">
+    <!-- Deleted form action returning to popup.html -->
+    <form>
 
       <label for="email">Email</label>
       <input type="email" name="email" id="email" placeholder="Enter your email so we can let you know once the guide is availble">
@@ -24,14 +25,11 @@
       <input type="text" id="Requesttype" name="lastname" placeholder="Type of guide requested">
 
       <label for="subject">Additionl notes</label>
-      <textarea id="subject" name="Additionlnotes" placeholder="Additional notes about the requested guide" style="height:200px"></textarea>
-
-      <button type="submit" class="submit-button" value="Submit"
-        onclick="window.location.href = 'popup.html';">Submit</button>
-
+      <textarea id="subject" name="Additionalnotes" placeholder="Additional notes about the requested guide" style="height:200px"></textarea>
+      <button id="SubmitButton" type="submit" class="submit-button" value="Submit">Submit</button>
     </form>
   </div>
 
 </body>
-
+<script src="../scripts/server_api.js"></script> 
 </html>
