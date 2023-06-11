@@ -1,0 +1,46 @@
+body {
+  font-family: sans-serif;
+  height: 400px;
+  width: 400px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #edf1ff;
+}
+
+.toggle-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #f0f0f0;
+  color: #333;
+  cursor: pointer;
+}
+
+.toggle-button.on {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.go-back-button {
+  border: none;
+  background-color: #edf1ff;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  cursor: pointer;
+  margin-left: auto;
+  background-image: url(/images/backbutton.png);
+  background-size: cover;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 250px;
+}
