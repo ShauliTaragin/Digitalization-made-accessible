@@ -1,18 +1,12 @@
 import traceback
 import pymongo
-from pymongo import MongoClient
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-import ssl
-
-ssl_context = ssl.create_default_context()
-ssl_context.check_hostname = False
-ssl_context.verify_mode = ssl.CERT_NONE
 
 app = Flask(__name__)
 CORS(app)
 
-client = pymongo.MongoClient("mongodb+srv://noamv:12345@cluster0.5vok1pd.mongodb.net/?retryWrites=true&w=majority", ssl=True)
+client = pymongo.MongoClient("mongodb+srv://noamv:12345@cluster0.5vok1pd.mongodb.net/?retryWrites=true&w=majority")
 db = client["DMA"]
 guides_collection = db["guides"]
 request_guides_collection = db["requests"]
