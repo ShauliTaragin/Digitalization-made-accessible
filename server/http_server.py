@@ -37,12 +37,12 @@ def insert_request_guide():
         r_guide = request.get_json()
         print(r_guide)
         result = request_guides_collection.insert_one(r_guide)
-        print(result)
         
         return jsonify({"message": "Request guide inserted", "id": str(result.inserted_id)}), 201
     except Exception as e:
         traceback.print_exc()
         return jsonify({"message": "An error occurred"}), 500
+
 # define a route to insert a new request
 @app.route('/guide', methods=['POST'])
 def insert_guide():

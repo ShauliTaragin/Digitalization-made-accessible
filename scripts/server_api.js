@@ -41,35 +41,3 @@ function get_guide(domain_name, guide_name) {
   }
 
 
-
-  
-  const button = document.getElementById("SubmitButton");
-  button.addEventListener("click", () => {
-    console.log("hello noam");
-
-    
-    const email = document.getElementById('email').value;
-    const requestType = document.getElementById('Requesttype').value;
-    const additionalNotes = document.getElementById('subject').value;
-    const currentURL = window.location.href;
-    console.log(currentURL);
-    const request_guide = {
-      email: email,
-      request_type: requestType,
-      additional_notes: additionalNotes,
-      current_url: currentURL
-    };
-
-    let xhr = new XMLHttpRequest();
-    xhr.open("POST", `https://flask-server-deplohy.herokuapp.com/request_guide`);
-    xhr.setRequestHeader("Accept", "application/json");
-    xhr.setRequestHeader("Content-Type", "application/json");
-    
-    xhr.onreadystatechange = function () {
-      if (xhr.readyState === 4) {
-        console.log(xhr.status);
-        console.log(xhr.responseText);
-      }};
-    
-    xhr.send(JSON.stringify(request_guide));
-  })
