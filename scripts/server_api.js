@@ -2,7 +2,7 @@ server_ip = '127.0.0.1'
 
 
 function get_guide(domain_name, guide_name) {
-    const url = `http://${server_ip}:5000/guide/${domain_name}/${guide_name}`;
+    const url = `https://flask-server-deplohy.herokuapp.com/guide/${domain_name}/${guide_name}`;
     const http = new XMLHttpRequest();
     
     return new Promise((resolve, reject) => {
@@ -25,7 +25,7 @@ function get_guide(domain_name, guide_name) {
   {
 
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", `http://${server_ip}:5000/guide`);
+    xhr.open("POST", `https://flask-server-deplohy.herokuapp.com/guide`);
     xhr.setRequestHeader("Accept", "application/json");
     xhr.setRequestHeader("Content-Type", "application/json");
     
@@ -39,3 +39,5 @@ function get_guide(domain_name, guide_name) {
 
     xhr.send(guide);
   }
+
+

@@ -1,3 +1,4 @@
+import traceback
 import pymongo
 from flask import Flask, request, jsonify
 from flask_cors import CORS
@@ -8,6 +9,7 @@ CORS(app)
 client = pymongo.MongoClient("mongodb+srv://noamv:12345@cluster0.5vok1pd.mongodb.net/?retryWrites=true&w=majority")
 db = client["DMA"]
 guides_collection = db["guides"]
+request_guides_collection = db["requests"]
 
 guide = {
     "domain": "www.btl.gov.il",
@@ -29,13 +31,25 @@ def get_guide(domain, guide_name):
 
 
 # define a route to insert a new guide
+@app.route('/request_guide', methods=['POST'])
+def insert_request_guide():
+    try:
+        r_guide = request.get_json()
+        print(r_guide)
+        result = request_guides_collection.insert_one(r_guide)
+        
+        return jsonify({"message": "Request guide inserted", "id": str(result.inserted_id)}), 201
+    except Exception as e:
+        traceback.print_exc()
+        return jsonify({"message": "An error occurred"}), 500
+
+# define a route to insert a new request
 @app.route('/guide', methods=['POST'])
 def insert_guide():
     guide = request.get_json()
     print(guide)
     result = guides_collection.insert_one(guide)
     return jsonify({"message": "Guide inserted", "id": str(result.inserted_id)}), 201
-
 
 @app.route('/guides/<domain>', methods=['GET'])
 def get_guides_by_domain(domain):
