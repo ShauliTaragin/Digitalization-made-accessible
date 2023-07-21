@@ -1,4 +1,3 @@
-// import { getAllDomains, getGuidesByDomain, get_guide } from "./popup.js";
 async function get_guide(domain_name, guide_name) {
   const url = `https://flask-server-deplohy.herokuapp.com/guide/${domain_name}/${guide_name}`;
   const http = new XMLHttpRequest();
