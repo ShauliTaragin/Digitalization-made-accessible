@@ -6,13 +6,19 @@
     <link rel="stylesheet" href="/css/styles.css" />
   </head>
   <body>
-    <div class="header">
-      <h1>DMA</h1>
-      <form action="settingsPage.html">
-      <button class="settings-button"></button>
-      </form>
-    </div>
 
+    <div class="header">
+      <div class="title-div">
+        <h1 class="title-class">DMA</h1>
+      </div>
+      <div class="settings-div">
+        <form action="settingsPage.html">
+          <button class="settings-button"></button>
+          </form>
+      </div>
+      
+    </div>
+    <div class="main-container">
     <form action="requestGuidePage.html">
       <button
         class="Get-guide-button" 
@@ -24,14 +30,11 @@
     </form>  
           
     <div class="container">
-
         <select class="dropdown-select" id="guide-list">
           <option value="">Choose a guide</option>
         </select>
         <button class="Go-to-chosen-option-button" id="Go-to-chosen-option-button">Go</button>
-
     </div>
-
     <form action="viewGuidesPage.html">
       <button class="View-all-guides-button" 
       id="View-all-guides-button"
@@ -47,6 +50,7 @@
         Get help
       </button>
     </form>
+ </div> 
   </body>
   <script src="../scripts/popup.js"></script>
 </html>

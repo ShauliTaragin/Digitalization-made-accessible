@@ -1,8 +1,9 @@
 body {
   font-family: sans-serif;
-  width: 600x;
+  /* width: 600x;
   height: 400px;
-  padding: 10px;
+  padding: 10px; */
+  margin: 0px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,8 +13,8 @@ body {
 .header {
   width: 100%;
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  /* justify-content: space-between; */
+  /* align-items: flex-start; */
   background-image: linear-gradient(to bottom left, #553c9a, #ee4b2b);
   color: transparent;
   background-clip: text;
@@ -21,9 +22,34 @@ body {
   font-size: 20px;
   font-weight: 10;
 }
-
+.title-div{
+  flex: 2;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 10px;
+}
+.settings-div{
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
+}
+.main-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 45px;
+  padding: 20px 10px;
+}
 h1 {
   margin: 0;
+  text-align: end;
+}
+.title-class{
+  align-self: center;
 }
 
 .settings-button {
@@ -35,8 +61,6 @@ h1 {
   text-align: center;
   line-height: 30px;
   cursor: pointer;
-  margin-top: 5px;
-  margin-right: 2px;
   background-image: url(/images/settings.png);
   background-size: cover;
 }
@@ -79,8 +103,6 @@ button:hover {
   color: black;
 } */
 button {
-  margin-top: 20px;
-  padding: 5px 10px;
   border: none;
   color: white;
   border-radius: 2px;
@@ -142,8 +164,6 @@ button {
 
 .get-help-button{
   align-items: center;
-  margin-top: 90px;
-  bottom: 0;
   background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
   border: 0;
   border-radius: 8px;
@@ -157,7 +177,7 @@ button {
   line-height: 1em;
   max-width: 100%;
   min-width: 90px;
-  padding: 5px 7px;
+  padding: 19px 24px;
   text-decoration: none;
   user-select: none;
   -webkit-user-select: none;
@@ -217,107 +237,6 @@ button {
     min-width: 196px;
   }
 }
-/* CSS */
-/* .Get-guide-button {
-  background-image: linear-gradient(92.88deg, #455EB5 9.16%, #5643CC 43.89%, #6f4bd2 64.72%);
-  border-radius: 8px;
-  border-style: none;
-  box-sizing: border-box;
-  color: #FFFFFF;
-  cursor: pointer;
-  flex-shrink: 0;
-  font-family: "Inter UI","SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  height: 4rem;
-  padding: 0 1.6rem;
-  text-align: center;
-  text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
-  transition: all .5s;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-} */
-
-/* .Get-guide-button:hover {
-  box-shadow: rgba(80, 63, 205, 0.5) 0 1px 30px;
-  transition-duration: .1s;
-} */
-
-/* @media (min-width: 768px) {
-  .Get-guide-button{
-    padding: 0 2.6rem;
-  }
-} */
-
-
-/* CSS */
-/* .View-all-guides-button {
-  background-image: linear-gradient(92.88deg, #455EB5 9.16%, #5643CC 43.89%, #673FD7 64.72%);
-  border-radius: 8px;
-  border-style: none;
-  box-sizing: border-box;
-  color: #FFFFFF;
-  cursor: pointer;
-  flex-shrink: 0;
-  font-family: "Inter UI","SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  height: 4rem;
-  padding: 0 1.6rem;
-  text-align: center;
-  text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
-  transition: all .5s;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-}
-
-.View-all-guides-button:hover {
-  box-shadow: rgba(80, 63, 205, 0.5) 0 1px 30px;
-  transition-duration: .1s;
-}
-
-@media (min-width: 768px) {
-  .View-all-guides-button{
-    padding: 0 2.6rem;
-  }
-} */
-
-/* CSS */
-/* .get-help-button {
-  margin-top: 180px;
-  background-image: linear-gradient(92.88deg, #455EB5 9.16%, #5643CC 43.89%, #673FD7 64.72%);
-  border-radius: 8px;
-  border-style: none;
-  box-sizing: border-box;
-  color: #FFFFFF;
-  cursor: pointer;
-  flex-shrink: 0;
-  font-family: "Inter UI","SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  height: 4rem;
-  padding: 0 1.6rem;
-  text-align: center;
-  text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
-  transition: all .5s;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-}
-
-.get-help-button:hover {
-  box-shadow: rgba(80, 63, 205, 0.5) 0 1px 30px;
-  transition-duration: .1s;
-}
-
-@media (min-width: 768px) {
-  .get-help-button{
-    padding: 0 2.6rem;
-  }
-}
- */
 
  .dropdown-select option {
   color: #333;
@@ -330,12 +249,12 @@ button {
 .container {
   display: flex;
   align-items: center; /* Center items vertically */
+  gap: 3px;
 }
 
 
 .Go-to-chosen-option-button {
   align-items: center;
-  margin-left: 3px;
   border: 0;
   border-radius: 8px;
   box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
@@ -347,9 +266,6 @@ button {
   font-size: 20px;
   justify-content: space-between;
   line-height: 1em;
-  margin-bottom: 40px;
-  margin-right: 10px;
-  margin-top: 70px;
   max-width: 100%;
   min-width: 0;
   padding: 5px;
@@ -365,9 +281,6 @@ button {
 .dropdown-select {
   align-items: center;
   text-align: center;
-  margin-left: 8px;
-  margin-top: 70px;
-  margin-bottom: 40px;
   bottom: 0;
   background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
   border: 0;
@@ -382,7 +295,6 @@ button {
   line-height: 1em;
   max-width: 100%;
   min-width: 90px;
-  padding: 5px 7px;
   text-decoration: none;
   user-select: none;
   -webkit-user-select: none;
@@ -390,7 +302,6 @@ button {
   white-space: nowrap;
   cursor: pointer;
   border-top-style: dotted;
-  /* border-width: 5px; */
   width: 160px; 
   height: 60px;
 }
