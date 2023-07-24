@@ -11,15 +11,6 @@ db = client["DMA"]
 guides_collection = db["guides"]
 request_guides_collection = db["requests"]
 
-guide = {
-    "domain": "www.btl.gov.il",
-    "guide_name": "106",
-    "steps": [
-        {"id": "c1", "action": "color"},
-        {"id": "button", "action": "click"}
-    ]
-}
-
 
 @app.route('/guide/<domain>/<guide_name>', methods=['GET'])
 def get_guide(domain, guide_name):
@@ -29,13 +20,11 @@ def get_guide(domain, guide_name):
     else:
         return jsonify({"message": "Guide not found"}), 404
 
-
-# define a route to insert a new guide
+# define a route to insert a new request
 @app.route('/request_guide', methods=['POST'])
 def insert_request_guide():
     try:
         r_guide = request.get_json()
-        print(r_guide)
         result = request_guides_collection.insert_one(r_guide)
         
         return jsonify({"message": "Request guide inserted", "id": str(result.inserted_id)}), 201
@@ -43,7 +32,6 @@ def insert_request_guide():
         traceback.print_exc()
         return jsonify({"message": "An error occurred"}), 500
 
-# define a route to insert a new request
 @app.route('/guide', methods=['POST'])
 def insert_guide():
     guide = request.get_json()
@@ -63,11 +51,9 @@ def get_guides_by_domain(domain):
 
 @app.route('/domains', methods=['GET'])
 def get_domains():
-    domains = []  # Initialize an empty list to store the domains
-    # Assuming you have a collection or data source containing the guides
-    # Retrieve all distinct domains from the collection
+    domains = []  
     distinct_domains = guides_collection.distinct("domain")
-    domains = list(distinct_domains)  # Convert the distinct_domains to a list
+    domains = list(distinct_domains) 
     return jsonify(domains)
 
 

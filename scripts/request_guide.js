@@ -19,14 +19,12 @@ button.addEventListener("click", async () => {
     const requestType = document.getElementById('Requesttype').value;
     const additionalNotes = document.getElementById('subject').value;
     const currentURL = await get_current_domain();
-    console.log(currentURL);
     const request_guide = {
         email: email,
         request_type: requestType,
         additional_notes: additionalNotes,
         current_url: currentURL
     };
-    console.log(request_guide);
     let xhr = new XMLHttpRequest();
     xhr.open("POST", `https://flask-server-deplohy.herokuapp.com/request_guide`);
     xhr.setRequestHeader("Accept", "application/json");

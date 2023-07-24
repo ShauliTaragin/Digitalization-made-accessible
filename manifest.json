@@ -19,7 +19,7 @@
                 "<all_urls>"
             ],
             "js": [
-                "scripts/script.js",
+                "scripts/notification_manager.js",
                 "scripts/content.js"
             ]
         }

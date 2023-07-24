@@ -95,12 +95,3 @@ btn.addEventListener("click", async function () {
   chrome.storage.local.set({ 'active_guide': guide }, function() {});
 })
 
-let notification = document.querySelector(".Get-guide-button");
-notification.addEventListener("click", async function () {
-  chrome.storage.local.get(['notification'], (result) =>
-  { 
-    const notification = result['notification']
-    chrome.storage.local.set({ 'notification': !notification }, function() {});
-  }
-  )
-})
